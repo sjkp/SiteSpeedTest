@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "SJKP.SiteSpeedTest": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AzureServicesAuthConnectionString": "RunAs=Developer; DeveloperTool=AzureCli",
+        "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=sjkpspeedtest;AccountKey=;EndpointSuffix=core.windows.net"
+      }
+    }
+  }
+}

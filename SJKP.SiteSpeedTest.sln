@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SJKP.SiteSpeedTest", "SJKP.SiteSpeedTest\SJKP.SiteSpeedTest.csproj", "{177A6EA3-C45C-40F7-BD76-808E6F681081}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SJKP.SiteSpeedTest", "SJKP.SiteSpeedTest\SJKP.SiteSpeedTest.csproj", "{177A6EA3-C45C-40F7-BD76-808E6F681081}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SJKP.SiteSpeedTest.Proxy", "SJKP.SiteSpeedTest.Proxy\SJKP.SiteSpeedTest.Proxy.csproj", "{2C2323DA-1D38-4E66-8458-B5EB4121132B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{177A6EA3-C45C-40F7-BD76-808E6F681081}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{177A6EA3-C45C-40F7-BD76-808E6F681081}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{177A6EA3-C45C-40F7-BD76-808E6F681081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C2323DA-1D38-4E66-8458-B5EB4121132B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C2323DA-1D38-4E66-8458-B5EB4121132B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C2323DA-1D38-4E66-8458-B5EB4121132B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C2323DA-1D38-4E66-8458-B5EB4121132B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

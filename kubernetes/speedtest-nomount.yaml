@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: speedtest-local
+spec:
+  containers:
+  - image: sitespeedio/browsertime
+    name: speedtest-local
+    command: ["/start.sh"]
+    args: ["https://dr.dk", "-b", "chrome"]       
+  restartPolicy: OnFailure 

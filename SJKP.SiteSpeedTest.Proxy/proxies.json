@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json.schemastore.org/proxies",
+  "proxies": {
+    "spa": {
+      "matchCondition": {
+        "route": "/{*restOfPath}"
+      },
+      "backendUri": "%FUNCTION_HOST%api/wildcard{restOfPath}"
+    }
+  }
+}
