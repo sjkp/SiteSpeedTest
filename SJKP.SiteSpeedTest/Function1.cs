@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Linq;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Text.RegularExpressions;
+using SJKP.SiteSpeedTest.Models;
 
 namespace SJKP.SiteSpeedTest
 {
@@ -34,18 +35,35 @@ namespace SJKP.SiteSpeedTest
             {
                 return new BadRequestObjectResult($"Invalid region, valid values are {string.Join(",", Region.Values)}");
             }
-            
+
             if (!Uri.TryCreate(body.WebSite, UriKind.Absolute, out var url))
             {
                 return new BadRequestObjectResult("Url invalid");
             }
+            var id = Guid.NewGuid();
+            string name = MakeName(region, url, id);
 
-            var name = $"{Regex.Replace(url.IdnHost, "[^\\w]", "-")}-{region.Name}-speedtest-{Guid.NewGuid()}";
+            var job = new SpeedTestJob()
+            {
+                Id = id.ToString(),
+                Region = region,
+                ResourceGroupName = name,
+                SubscriptionId = subscriptionId,
+                Uri = url
+            };
 
-            starter.StartNewAsync()
-            var id = await new AciService().StartNewSpeedTest(subscriptionId, region, url, "speedtest");
+            await new AciService().StartNewSpeedTest(job);
 
-            return new OkObjectResult(id);
+            return new OkObjectResult(job);
+        }
+
+        public static string MakeName(Region region, Uri url, Guid id)
+        {
+            var sitename = $"{Regex.Replace(url.IdnHost, "[^\\w]", "-")}";
+            var name = $"-{region.Name}-speedtest-{id}";
+
+            name = $"{sitename.Substring(0, sitename.Length + name.Length > 90 ? (90 - name.Length > sitename.Length ? sitename.Length : 90 - name.Length) : sitename.Length) }{name}";
+            return name;
         }
 
         [FunctionName("locations")]
